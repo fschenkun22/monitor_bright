@@ -164,6 +164,7 @@ if __name__ == '__main__':
     
     print(f"Starting Monitor Brightness API Server on {host}:{port}")
     print(f"Platform: {controller.system}")
-    print(f"API documentation: http://{host}:{port}/")
+    display_host = 'localhost' if host == '0.0.0.0' else host
+    print(f"API documentation: http://{display_host}:{port}/")
     
     app.run(host=host, port=port, debug=debug)

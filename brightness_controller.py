@@ -124,7 +124,7 @@ class BrightnessController:
                 for line in result.stdout.split('\n'):
                     if 'Brightness:' in line:
                         brightness = float(line.split(':')[1].strip())
-                        return int(brightness * 100)
+                        return round(brightness * 100)
             return None
         except Exception:
             # Try backlight sysfs interface
@@ -133,7 +133,7 @@ class BrightnessController:
                     current = int(f.read().strip())
                 with open('/sys/class/backlight/intel_backlight/max_brightness', 'r') as f:
                     max_bright = int(f.read().strip())
-                return int((current / max_bright) * 100)
+                return round((current / max_bright) * 100)
             except Exception:
                 return None
     
@@ -205,7 +205,7 @@ class BrightnessController:
                 for line in result.stdout.split('\n'):
                     if 'brightness' in line.lower():
                         value = float(line.split()[-1])
-                        return int(value * 100)
+                        return round(value * 100)
             return None
         except Exception:
             return None
