@@ -32,7 +32,6 @@ echo ""
 # Parse command line arguments
 PORT=5000
 HOST="0.0.0.0"
-DEBUG=""
 
 while [[ $# -gt 0 ]]; do
     case $1 in
@@ -44,13 +43,9 @@ while [[ $# -gt 0 ]]; do
             HOST="$2"
             shift 2
             ;;
-        --debug)
-            DEBUG="--debug"
-            shift
-            ;;
         *)
             echo "Unknown option: $1"
-            echo "Usage: $0 [--port PORT] [--host HOST] [--debug]"
+            echo "Usage: $0 [--port PORT] [--host HOST]"
             exit 1
             ;;
     esac
@@ -62,4 +57,4 @@ echo "Host: $HOST"
 echo "Port: $PORT"
 echo ""
 
-python3 app.py --port=$PORT --host=$HOST $DEBUG
+python3 app.py --port=$PORT --host=$HOST

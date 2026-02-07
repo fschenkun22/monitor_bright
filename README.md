@@ -59,13 +59,12 @@ By default, the server runs on `http://0.0.0.0:5000`
 #### Command Line Options
 
 ```bash
-python app.py --port=8080 --host=127.0.0.1 --debug
+python app.py --port=8080 --host=127.0.0.1
 ```
 
 Options:
 - `--port=PORT`: Specify port number (default: 5000)
 - `--host=HOST`: Specify host (default: 0.0.0.0)
-- `--debug`: Enable debug mode
 
 ## API Endpoints
 

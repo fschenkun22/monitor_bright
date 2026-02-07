@@ -150,7 +150,6 @@ if __name__ == '__main__':
     # Default configuration
     host = '0.0.0.0'
     port = 5000
-    debug = False
     
     # Parse command line arguments
     if len(sys.argv) > 1:
@@ -159,12 +158,11 @@ if __name__ == '__main__':
                 port = int(arg.split('=')[1])
             elif arg.startswith('--host='):
                 host = arg.split('=')[1]
-            elif arg == '--debug':
-                debug = True
     
     print(f"Starting Monitor Brightness API Server on {host}:{port}")
     print(f"Platform: {controller.system}")
     display_host = 'localhost' if host == '0.0.0.0' else host
     print(f"API documentation: http://{display_host}:{port}/")
     
-    app.run(host=host, port=port, debug=debug)
+    # Always run with debug=False for security
+    app.run(host=host, port=port, debug=False)
